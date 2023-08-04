@@ -1,0 +1,24 @@
+<div class="form-container">
+  <form
+    class="dynamic-form v-flex"
+    [formGroup]="form"
+    (submit)="onSubmit($event)"
+  >
+    <ng-container
+      *ngFor="let field of fields"
+      appDynamicField
+      [field]="field"
+      [group]="form"
+    >
+    </ng-container>
+    <button
+      mat-flat-button
+      color="primary"
+      class="button"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Save
+    </button>
+  </form>
+</div>

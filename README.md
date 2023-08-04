@@ -1,27 +1,64 @@
-# DynamicForm
+Dynamic Form Project
+====================
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+This is a dynamic form builder application built using Angular. It allows users to create custom forms with various types of input fields, including text, number, date, select, radio, and checkbox. The form configurations are stored in the `FormsService`, and the application supports various functionalities like adding, deleting, and editing form entries.
 
-## Development server
+Note: This project was done for a recruitment interview at Bugloos.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+[![Bugloos Angular Task](https://i.ytimg.com/vi/80qt5F_uFrg/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgQiguMA8=&amp;rs=AOn4CLDeMQP5V83T5dWDgKmK8SESJxOVVQ)](https://www.youtube.com/watch?v=80qt5F_uFrg)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Getting Started
+---------------
 
-## Build
+To get started with this project, follow the steps below:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1.  Clone the repository:
 
-## Running unit tests
+`git clone https://github.com/aliosmanyuksel/dynamic-form.git`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`cd dynamic-form`
 
-## Running end-to-end tests
+2.  Install dependencies:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+`npm install`
 
-## Further help
+3.  Start the development server:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`ng serve`
+
+The application will be available at `http://localhost:4200/`.
+
+Folder Structure
+----------------
+
+The project follows the following folder structure:
+
+-   `src/app/core`: Contains shared core modules, services, and utilities.
+-   `src/app/shared`: Contains shared components, directives, and pipes.
+-   `src/app/modules/dynamic-form`: Contains the main dynamic-form module with form components and other related files.
+
+How to Use
+----------
+
+1.  Define the form fields in `forms.service.ts`: Modify the `formConfig` array with the desired form fields, their types, and other configurations.
+
+2.  Use the `dynamic-form` component: In your application, you can use the `dynamic-form` component to render the dynamic form with the configured fields.
+
+
+`<!-- YourComponent.html -->
+<ng-container *ngIf="formConfig">
+  <dynamic-form [fields]="formConfig"></dynamic-form>
+</ng-container>`
+
+3.  Handle form submissions: The form submission logic can be handled in the `FormComponent`. You can define `beforeSubmitService` and `afterSubmitService` functions for each field in the `formConfig` array to perform operations before and after form submission.
+
+Contributions
+-------------
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or create a pull request.
+
+License
+-------
+
+This project is licensed under the MIT License.

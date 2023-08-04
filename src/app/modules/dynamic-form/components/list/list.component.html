@@ -1,0 +1,34 @@
+<div>
+    <ng-template #noData>
+      <div class="no-data">
+        <h2>No data to display. Click on "New" button to create one!</h2>
+      </div>
+    </ng-template>
+    <table mat-table [dataSource]="listData" class="mat-elevation-z8" *ngIf="listData.length > 0; else noData">
+  
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column.fieldName">
+        <th mat-header-cell *matHeaderCellDef> {{column.displayName}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column.fieldName] | format: column.format}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td *matCellDef="let row; let i = index">
+          <button mat-icon-button (click)="editData(row, i)" *ngIf="checkEdit()">
+            <span class="material-icons">
+              edit
+            </span>
+          </button>
+          <button mat-icon-button (click)="deleteRow(i)" *ngIf="checkDelete()">
+            <span class="material-icons">
+              delete
+            </span>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

@@ -1,0 +1,10 @@
+<div class="fieldContainer">
+  <mat-form-field [formGroup]="group">
+    <textarea
+      matInput
+      [formControlName]="field.fieldName"
+      [placeholder]="field.displayName"
+    ></textarea>
+    <mat-hint *ngIf="field.description">{{ field.description }}</mat-hint>
+  </mat-form-field>
+</div>

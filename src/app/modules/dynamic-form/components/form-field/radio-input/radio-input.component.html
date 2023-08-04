@@ -1,0 +1,11 @@
+<div class="fieldContainer">
+  <div class="margin-top" [formGroup]="group">
+    <label class="radio-label-padding">{{ field.displayName }}:</label>
+    <mat-radio-group [formControlName]="field.fieldName">
+      <mat-radio-button *ngFor="let item of field.options" [value]="item">{{
+        item
+      }}</mat-radio-button>
+    </mat-radio-group>
+    <mat-hint *ngIf="field.description">{{ field.description }}</mat-hint>
+  </div>
+</div>

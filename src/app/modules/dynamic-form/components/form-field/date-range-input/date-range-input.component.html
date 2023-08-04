@@ -1,0 +1,27 @@
+<div class="fieldContainer">
+  <mat-form-field class="demo-full-width" [formGroup]="group">
+    <input
+      matInput
+      [matDatepicker]="startPicker"
+      [formControlName]="field.fieldName"
+      [placeholder]="field.displayName + ' (Start)'"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="startPicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #startPicker></mat-datepicker>
+    <mat-hint *ngIf="field.description">{{ field.description }}</mat-hint>
+  </mat-form-field>
+  <mat-form-field class="demo-full-width" [formGroup]="group">
+    <input
+      matInput
+      [matDatepicker]="endPicker"
+      [formControlName]="field.fieldName + 'End'"
+      [placeholder]="field.displayName + ' (End)'"
+    />
+    <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+    <mat-datepicker #endPicker></mat-datepicker>
+    <mat-hint *ngIf="field.description">{{ field.description }}</mat-hint>
+  </mat-form-field>
+</div>
